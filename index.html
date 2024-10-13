@@ -13,38 +13,31 @@
             background-color: #f9f9f9;
             color: #333;
             border: 3px solid #0000FF;
-            display: flex;
-        }
-        /* Vertical sidebar navigation */
-        nav {
-            width: 200px;
-            background-color: #333;
-            padding-top: 20px;
-            height: 100vh; /* Full height of the page */
-            position: fixed; /* Stay fixed in place */
-        }
-        nav a {
-            display: block;
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            text-align: center;
-            border-bottom: 1px solid #444;
-        }
-        nav a:hover {
-            background-color: #575757;
-        }
-        /* Main content styles */
-        main {
-            margin-left: 200px; /* Make room for the sidebar */
-            padding: 20px;
-            flex: 1;
         }
         header {
             background-color: #0000FF;
             color: white;
             padding: 20px;
             text-align: center;
+        }
+        nav {
+            text-align: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        section {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
         }
         h1 {
             margin-bottom: 10px;
@@ -54,6 +47,15 @@
         }
         p {
             line-height: 1.6;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
         .photo {
             float: right;
@@ -74,6 +76,9 @@
             padding: 10px;
             border: 1px solid #ddd;
         }
+        .publication-item {
+            margin-bottom: 10px;
+        }
         .contact-icons {
             display: flex;
             justify-content: center;
@@ -84,20 +89,20 @@
             color: #0000FF;
             font-size: 24px;
         }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Vertical navigation bar -->
+    <header>
+        <h1>Pravindra Shekhar</h1>
+        <p>Research Scholar in Machine Learning and Data Science</p>
+        <div class="contact-icons">
+            <a href="mailto:pravindra@uohyd.ac.in"><img src="email_icon.png" alt="Email Icon"></a>
+            <a href="tel:+918247656221"><img src="phone_icon.png" alt="Phone Icon"></a>
+            <a href="https://linkedin.com/in/pravindra" target="_blank"><img src="linkedin_icon.png" alt="LinkedIn Icon"></a>
+        </div>
+    </header>
+
     <nav>
         <a href="#home">Home</a>
         <a href="#teaching">Teaching</a>
@@ -106,86 +111,50 @@
         <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Main content -->
-    <main>
-        <header id="home">
-            <h1>Pravindra Shekhar</h1>
-            <p>Research Scholar in Machine Learning and Data Science</p>
-            <div class="contact-icons">
-                <a href="mailto:pravindra@uohyd.ac.in"><img src="email_icon.png" alt="Email Icon"></a>
-                <a href="tel:+918247656221"><img src="phone_icon.png" alt="Phone Icon"></a>
-                <a href="https://linkedin.com/in/pravindra" target="_blank"><img src="linkedin_icon.png" alt="LinkedIn Icon"></a>
-            </div>
-        </header>
+    <section id="about">
+        <h2>About Me</h2>
+        <img src="pravindra.jpeg" alt="Pravindra Shekhar" class="photo">
+        <p>I am Pravindra Shekhar, a research scholar with a passion for Machine Learning, Artificial Intelligence, and Data Science. My research focuses on developing intelligent solutions for fault detection in IoT-enabled Wireless Sensor Networks. With over 8 years of research experience, I have contributed significantly to the field through numerous publications in top-tier journals and conferences.</p>
+        <div class="clear"></div>
+    </section>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <img src="pravindra.jpeg" alt="Pravindra Shekhar" class="photo">
-            <p>I am Pravindra Shekhar, a research scholar with a passion for Machine Learning, Artificial Intelligence, and Data Science. My research focuses on developing intelligent solutions for fault detection in IoT-enabled Wireless Sensor Networks. With over 8 years of research experience, I have contributed significantly to the field through numerous publications in top-tier journals and conferences.</p>
-            <div class="clear"></div>
-        </section>
+    <section id="research-interests">
+        <h2>Research Interests</h2>
+        <ul>
+            <li>Wireless Sensor Networks</li>
+            <li>Mobile communication</li>
+            <li>Intelligent Fault Detection & Identification</li>
+            <li>Internet of Things (IoT)</li>
+            <li>Machine Learning and AI</li>
+        </ul>
+    </section>
 
-        <section id="research">
-            <h2>Research Interests</h2>
-            <ul>
-                <li>Wireless Sensor Networks</li>
-                <li>Mobile communication</li>
-                <li>Intelligent Fault Detection & Identification</li>
-                <li>Internet of Things (IoT)</li>
-                <li>Machine Learning and AI</li>
-            </ul>
-        </section>
+    <section id="research-experience">
+        <h2>Research Experience</h2>
+        <ul>
+            <li>Senior Researcher at AI Lab, University of Hyderabad (2018 - Present)</li>
+            <li>Research Associate, IoT Lab, Hyderabad (2015 - 2018)</li>
+            <li>Collaborated with international teams on AI-driven IoT solutions for real-time fault detection.</li>
+        </ul>
+    </section>
 
-        <section id="research-experience">
-            <h2>Research Experience</h2>
-            <ul>
-                <li>Senior Researcher at AI Lab, University of Hyderabad (2018 - Present)</li>
-                <li>Research Associate, IoT Lab, Hyderabad (2015 - 2018)</li>
-                <li>Collaborated with international teams on AI-driven IoT solutions for real-time fault detection.</li>
-            </ul>
-        </section>
+    <section id="education">
+        <h2>Education</h2>
+        <ul>
+            <li>Ph.D. in Computer Science, University of Hyderabad (2018 - Present)</li>
+            <li>M.Tech in Computer Science, National Institute of Technology (NIT), Warangal (2015)</li>
+            <li>B.Tech in Information Technology, Jawaharlal Nehru Technological University (JNTU), Hyderabad (2012)</li>
+        </ul>
+    </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <ul>
-                <li>Ph.D. in Computer Science, University of Hyderabad (2018 - Present)</li>
-                <li>M.Tech in Computer Science, National Institute of Technology (NIT), Warangal (2015)</li>
-                <li>B.Tech in Information Technology, Jawaharlal Nehru Technological University (JNTU), Hyderabad (2012)</li>
-            </ul>
-        </section>
-
-        <section id="awards-fellowships">
-            <h2>Awards and Fellowships</h2>
-            <ul>
-                <li>Best Research Paper Award, International Conference on Data Engineering (2023)</li>
-                <li>UGC Junior Research Fellowship (2018)</li>
-                <li>University Gold Medal for Academic Excellence, NIT Warangal (2015)</li>
-            </ul>
-        </section>
-
-        <section id="publications">
-            <h2>Publications</h2>
-            <div class="publication-item">
-                <h3>Shakunt, Pravindra Shekhar and Udgata, S.K. Machine learning-based fault detection scheme for IoT-enabled WSNs. International Journal Sensor Networks. 46, 61-72 (2024). (SCIE INDEXED)</h3>
-            </div>
-            <div class="publication-item">
-                <h3>Shakunt, Pravindra Shekhar and Udgata, S.K. One Class Classifier Models for Unseen Fault Detection in  Wireless Sensor Network Applications. Pervasive and Mobile Computing.(2024) (SCIE INDEXED)(Communicated)</h3>
-            </div>
-            <div class="publication-item">
-                <h3>Shakunt, Pravindra Shekhar, Diagnosis of Faults in Wireless Sensor Networks Through Machine Learning Approach. International Conference on Human-Centric Smart Computing. New Delhi, India 2023. (SCOPUS INDEXED)</h3>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Information</h2>
-            <p>If you would like to reach out for collaborations or inquiries, please contact Mr. Pravindra via the following:</p>
-            <ul>
-                <li>Email: pravindra@uohyd.ac.in</li>
-                <li>Phone: +91-8247656221</li>
-                <li>Address: AI Lab, School of Computer and Information Sciences, University of Hyderabad</li>
-            </ul>
-        </section>
-    </main>
+    <section id="awards-fellowships">
+        <h2>Awards and Fellowships</h2>
+        <ul>
+            <li>Best Research Paper Award, International Conference on Data Engineering (2023)</li>
+            <li>UGC Junior Research Fellowship (2018)</li>
+            <li>University Gold Medal for Academic Excellence, NIT Warangal (2015)</li>
+        </ul>
+    </section>
 
     <footer>
         <p>&copy; 2024 Pravindra Shekhar | All Rights Reserved</p>
