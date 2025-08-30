@@ -1,208 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Research Scholar Profile</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-            border: 3px solid #0000FF;
-        }
-        header {
-            background-color: #0000FF;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            text-align: center;
-            background-color: #333;
-            padding: 10px 0;
-        }
-        nav a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        nav a:hover {
-            background-color: #575757;
-        }
-        section {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-        }
-        h1 {
-            margin-bottom: 10px;
-        }
-        h2 {
-            color: #0000FF;
-        }
-        p {
-            line-height: 1.6;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-        .photo {
-            float: right;
-            margin-left: 20px;
-            width: 150px;
-            border-radius: 50%;
-        }
-        .clear {
-            clear: both;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        ul li {
-            background-color: #f4f4f4;
-            margin: 5px 0;
-            padding: 10px;
-            border: 1px solid #ddd;
-        }
-        .publication-item {
-            margin-bottom: 10px;
-        }
-        .hidden {
-            display: none;
-        }
-    </style>
-    <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                section.classList.add('hidden');
-            });
-
-            // Show the selected section
-            const selectedSection = document.getElementById(sectionId);
-            selectedSection.classList.remove('hidden');
-        }
-
-        // Show only About Me on page load
-        window.onload = function() {
-            showSection('about');
-        };
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistant Professor | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <header>
-        <div class="header-content">
-            <h1>Pravindra Shekhar</h1>
-            <p><i>PhD (Computer Science)<i></p>
-            <div class="contact-icons">
-                <a href="mailto:pravindra@uohyd.ac.in"><img src="email_icon.png" alt="Email Icon"></a>
-                <a href="tel:+918247656221"><img src="phone_icon.png" alt="Phone Icon"></a>
-                <a href="https://linkedin.com/in/pravindra" target="_blank"><img src="linkedin_icon.png" alt="LinkedIn Icon"></a>
-            </div>
-                <img src="pravindra.jpeg" alt="Pravindra Shekhar" class="photo">
-        </div>
-    </header>
-
+  <header>
+    <h1>Dr. Pravin S</h1>
+    <img src="profile.jpg" alt="Profile" class="profile-pic" onclick="togglePopup()">
     <nav>
-        <a href="javascript:void(0);" onclick="showSection('about')">Home</a>
-        <a href="javascript:void(0);" onclick="showSection('research-interests')">Research</a>
-        <a href="javascript:void(0);" onclick="showSection('research-experience')">Research Experience</a>
-        <a href="javascript:void(0);" onclick="showSection('education')">Education</a>
-        <a href="javascript:void(0);" onclick="showSection('awards-fellowships')">Awards and Fellowships</a>
-        <a href="javascript:void(0);" onclick="showSection('publications')">Publications</a>
-        <a href="javascript:void(0);" onclick="showSection('contact')">Contact</a>
+      <a href="/home" class="nav-link" data-section="home">Home</a>
+      <a href="/research" class="nav-link" data-section="research">Research</a>
+      <a href="/teaching" class="nav-link" data-section="teaching">Teaching Assistant</a>
+      <a href="/publications" class="nav-link" data-section="publications">Publications</a>
+      <a href="/contact" class="nav-link" data-section="contact">Contact</a>
+      <a href="/resources" class="nav-link" data-section="resources">Resources</a>
+      <a href="/activity" class="nav-link" data-section="activity">Activity</a>
     </nav>
+  </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am currently pursuing my PhD in Computer Science with a passion for Machine Learning, Artificial Intelligence, and Data Science at the School of Computer and Information Sciences(SCIS), University of Hyderabad, Telangana, India. I have done Master in Computer Applications from Dr. A.P.J.Abul Kalam University formerly Uttar Pradesh Technical University, Lucknow, Uttar Pradesh. I received my Bachelor of Science degree from Dr. B.R. Ambedkar University, Agra, Uttar Pradesh, India. I am working on outlier/error/fault/ abnormality detection in wireless sensor data through soft computing and machine learning algorithms. I have presented several papers at International Conferences for proceedings. I have published several papers in SCI and SCOPUS-indexed journals. I have participated in several National workshops and seminars. My research focuses on developing intelligent solutions for fault diognosis in IoT-enabled Wireless Sensor Networks.</p>
-        <div class="clear"></div>
+  <main>
+    <section id="home"><h2>Home</h2><p>Welcome to my academic website.</p></section>
+    <section id="research"><h2>Research</h2><p>Research interests and projects here.</p></section>
+    <section id="teaching"><h2>Teaching</h2><p>Teaching experience and courses here.</p></section>
+    <section id="publications"><h2>Publications</h2><p>List of publications here.</p></section>
+    <section id="contact"><h2>Contact</h2>
+      <p><a href="mailto:pravindra@uohyd.ac.in" class="email-link">📧 Email</a></p>
     </section>
+    <section id="resources"><h2>Resources</h2><p>Useful resources and links.</p></section>
+    <section id="activity"><h2>Activity</h2><p>Recent academic activities.</p></section>
+  </main>
 
-    <section id="research-interests" class="hidden">
-        <h2>Research Interests</h2>
-        <ul>
-            <li>Wireless Sensor Networks</li>
-            <li>Mobile Communication</li>
-            <li>Intelligent Fault Detection & Identification</li>
-            <li>Internet of Things (IoT)</li>
-            <li>Machine Learning and AI</li>
-        </ul>
-    </section>
-
-    <section id="research-experience" class="hidden">
-        <h2>Research Experience</h2>
-        <ul>
-            <li>Senior Researcher at AI Lab, University of Hyderabad (2018 - Present)</li>
-            <li>Research Associate, IoT Lab, Hyderabad (2015 - 2018)</li>
-            <li>Collaborated with international teams on AI-driven IoT solutions for real-time fault detection.</li>
-        </ul>
-    </section>
-
-    <section id="education" class="hidden">
-        <h2>Education</h2>
-        <ul>
-            <li>Ph.D. in Computer Science, University of Hyderabad (2018 - Present)</li>
-            <li>M.Tech in Computer Science, National Institute of Technology (NIT), Warangal (2015)</li>
-            <li>B.Tech in Information Technology, Jawaharlal Nehru Technological University (JNTU), Hyderabad (2012)</li>
-        </ul>
-    </section>
-
-    <section id="awards-fellowships" class="hidden">
-        <h2>Awards and Fellowships</h2>
-        <ul>
-            <li>Best Research Paper Award, International Conference on Data Engineering (2023)</li>
-            <li>UGC Junior Research Fellowship (2018)</li>
-            <li>University Gold Medal for Academic Excellence, NIT Warangal (2015)</li>
-        </ul>
-    </section>
-
-    <section id="publications" class="hidden">
-        <h2>Publications</h2>
-        <div class="publication-item">
-            <h3>Shakunt, Pravindra Shekhar and Udgata, S.K. <a herf = "https://www.inderscienceonline.com/doi/abs/10.1504/IJSNET.2024.141771">Machine learning-based fault detection scheme for IoT-enabled WSNs</a>. International Journal Sensor Networks. 46, 61-72 (2024). (SCIE INDEXED)</h3>
-        </div>
-        <div class="publication-item">
-            <h3>Shakunt, Pravindra Shekhar and Udgata, S.K. <a herf = "https://www.sciencedirect.com/journal/pervasive-and-mobile-computing">One Class Classifier Models for Unseen Fault Detection in Wireless Sensor Network Applications</a>. Pervasive and Mobile Computing.(2024) (SCIE INDEXED)(Communicated)</h3>
-        </div>
-        <div class="publication-item">
-            <h3>Shakunt, Pravindra Shekhar,<a herf = "https://link.springer.com/chapter/10.1007/978-981-99-7711-6_17"> Diagnosis of Faults in Wireless Sensor Networks Through Machine Learning Approach</a>. International Conference on Human-Centric Smart Computing. New Delhi, India 2023. (SCOPUS INDEXED)</h3>
-        </div>
-        <div class="publication-item">
-            <h3>Shakunt, Pravindra Shekhar,<a herf = "https://icmeet.in/"> Detection of Faults Based on Machine Learning Schemes in Wireless Sensor Networks</a>. International Conference on Micro-Electronics, Electromagnetics and Telecommunications. NIT Mizoram, India 2023. (SCOPUS INDEXED)</h3>
-        </div>
-        <div class="publication-item">
-            <h3>Shakunt, Pravindra Shekhar and Udgata, S.K. <a herf = https://icdect.com/>Unsupervised one class classifier model for fault detection in Wireless Sensor Networks</a>. International Conference on Data Engineering and Communication Technology, Kuala Lumpur, Malaysia 2024. (SCOPUS INDEXED)</h13>
-        </div>
-    </section>
-
-    <section id="contact" class="hidden">
-        <h2>Contact Information</h2>
-        <p>If you would like to reach out for collaborations or inquiries, please contact Mr. Pravindra via the following:</p>
-        <ul>
-            <li>Email: <a href="mailto:pravindra@uohyd.ac.in">pravindra@uohyd.ac.in</a></li>
-            <li>Phone: +91-8247656221</li>
-            <li>Address: AI Lab, School of Computer and Information Sciences, University of Hyderabad</li>
-        </ul>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Pravindra Shekhar | All Rights Reserved</p>
-    </footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
