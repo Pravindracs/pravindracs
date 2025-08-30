@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistant Professor Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 20px 10%;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    nav {
+      background: #34495e;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none; /* removed underline */
+      margin: 0 15px;
+      font-weight: bold;
+      cursor: pointer;
+      display: inline-block;
+      transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
+    nav a:hover {
+      transform: scale(1.2);
+      color: #1abc9c;
+    }
+    nav a.active {
+      font-weight: bold;
+      color: #1abc9c;
+    }
+    main {
+      padding: 40px 10%;
+      min-height: 60vh;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+    /* Fixed profile photo */
+    .profile-container {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      text-align: center;
+      z-index: 2000;
+    }
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 3px solid #1abc9c;
+    }
+    /* Popup card */
+    .popup-card {
+      display: none;
+      position: absolute;
+      top: 100px;
+      right: 0;
+      background: white;
+      color: #333;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      padding: 20px;
+      width: 230px;
+      z-index: 2100;
+      text-align: center;
+    }
+    .popup-card h3 {
+      margin-top: 0;
+    }
+    .popup-card a {
+      display: block;
+      margin: 8px 0;
+      color: #2c3e50;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
+    .popup-card a:hover {
+      transform: scale(1.2);
+      color: #1abc9c;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dr. Pravin S</h1>
+    <p>Assistant Professor</p>
+  </header>
+
+  <nav>
+    <a onclick="loadSection('home')" class="active">Home</a>
+    <a onclick="loadSection('research')">Research</a>
+    <a onclick="loadSection('teaching')">Teaching Assistant</a>
+    <a onclick="loadSection('publications')">Publications</a>
+    <a onclick="loadSection('contact')">Contact</a>
+    <a onclick="loadSection('resources')">Resources</a>
+    <a onclick="loadSection('activity')">Activity</a>
+  </nav>
+
+  <main id="content">
+    <div class="card">
+      <h2>Welcome</h2>
+      <p>This is the professional portfolio of Dr. Pravin S, Assistant Professor.</p>
+    </div>
+  </main>
+
+  <div class="profile-container">
+    <img src="pravindra.jpeg" alt="Profile Photo" class="profile-pic" onclick="togglePopup()">
+    <div class="popup-card" id="popupCard">
+      <h3>Pravindra Shekhar</h3>
+      <a href="mailto:pravindra@uohyd.ac.in" class="enlarge-hover">📧 Email</a>
+      <a href="https://linkedin.com" target="_blank" class="enlarge-hover">🔗 LinkedIn</a>
+      <a href="https://scholar.google.com" target="_blank" class="enlarge-hover">📖 Google Scholar</a>
+      <a href="https://yourwebsite.com" target="_blank" class="enlarge-hover">🌐 Website</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Dr. Pravin S | Assistant Professor</p>
+  </footer>
+
+  <script>
+  function togglePopup() {
+    const popup = document.getElementById("popupCard");
+    popup.style.display = (popup.style.display === "block") ? "none" : "block";
+  }
+
+  document.addEventListener("click", function(event) {
+    const popup = document.getElementById("popupCard");
+    const profilePic = document.querySelector(".profile-pic");
+    if (!popup.contains(event.target) && !profilePic.contains(event.target)) {
+      popup.style.display = "none";
+    }
+  });
+
+  const sections = {
+    home: `<div class="card"><h2>Welcome</h2><p>This is the professional portfolio of Dr. Pravin S, Assistant Professor.</p></div>`,
+    research: `<div class="card"><h2>Research</h2><p>Details about research projects and interests.</p></div>`,
+    teaching: `<div class="card"><h2>Teaching Assistant</h2><p>Information about teaching experience and courses handled.</p></div>`,
+    publications: `<div class="card"><h2>Publications</h2><p>List of research publications and academic works.</p></div>`,
+    contact: `<div class="card"><h2>Contact</h2><p>📧 Email: <a href="mailto:pravindra@uohyd.ac.in">pravindra@uohyd.ac.in</a></p></div>`,
+    resources: `<div class="card"><h2>Resources</h2><p>Useful academic resources, lecture notes, and references.</p></div>`,
+    activity: `<div class="card"><h2>Activity</h2><p>Updates on academic and research activities.</p></div>`
+  };
+
+  function loadSection(section, clickedLink = null) {
+    // Update URL without reloading page
+    const newUrl = `${window.location.pathname}?section=${section}`;
+    window.history.pushState({section}, "", newUrl);
+
+    // Update active nav item
+    document.querySelectorAll("nav a").forEach(link => link.classList.remove("active"));
+    if (clickedLink) {
+      clickedLink.classList.add("active");
+    } else {
+      const activeNav = document.querySelector(`nav a[onclick="loadSection('${section}', this)"]`);
+      if (activeNav) activeNav.classList.add("active");
+    }
+
+    // Update content
+    const content = document.getElementById("content");
+    content.innerHTML = sections[section];
+    content.style.animation = "fadeIn 0.5s ease-in-out";
+  }
+
+  // Handle back/forward buttons
+  window.onpopstate = function(event) {
+    const section = event.state?.section || "home";
+    loadSection(section);
+  };
+
+  // On page load, check URL
+  window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sectionFromUrl = urlParams.get("section") || "home";
+    loadSection(sectionFromUrl);
+  };
+</script>
+</body>
+</html>
