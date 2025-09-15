@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Researcher - Pravindra Shekhar</title>
+  <style>
+    body {font-family: Arial, sans-serif; margin:0; padding:0; line-height:1.6; background:#f8f9fa; color:#333;}
+    header {background:#2c3e50; color:white; padding:20px 10%;}
+    header h1 {margin:0; font-size:2.5em;}
+    nav {background:#34495e; padding:10px; text-align:center;}
+    nav a {color:white; text-decoration:none; margin:0 15px; font-weight:bold; cursor:pointer; transition:transform 0.2s,color 0.2s;}
+    nav a:hover {transform:scale(1.2); color:#1abc9c;}
+    nav a.active {color:#1abc9c; border-bottom:2px solid #1abc9c;}
+    main {padding:40px 10%; min-height:60vh;}
+    h2 {color:#2c3e50; margin-bottom:15px;}
+    .card {background:white; padding:20px; border-radius:10px; margin-bottom:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1);}
+    footer {background:#2c3e50; color:white; text-align:center; padding:15px;}
+    /* Profile popup */
+    .profile-container {position:fixed; top:10px; right:10px; text-align:center; z-index:2000;}
+    .profile-pic {width:140px; height:140px; border-radius:50%; cursor:pointer; border:3px solid #1abc9c;}
+    .popup-card {display:none; position:absolute; top:100px; right:0; background:white; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.2); padding:20px; width:230px; z-index:2100; text-align:center;}
+    .popup-card a {display:block; margin:8px 0; color:#2c3e50; text-decoration:none; font-weight:bold;}
+    .popup-card a:hover {color:#1abc9c;}
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Pravindra Shekhar</h1>
+    <p>Researcher | School of Computer & Information Sciences</p>
+  </header>
+
+  <!-- Fixed profile -->
+  <div class="profile-container">
+    <img src="pravindra.jpg" alt="Profile Photo" class="profile-pic" onclick="togglePopup()">
+    <div class="popup-card" id="popupCard">
+      <h3>Pravindra Shekhar</h3>
+      <p>Research Scholar</p>
+      <a href="mailto:pravindra@uohyd.ac.in">📧 Email</a>
+      <a href="https://www.linkedin.com/in/pravindra-shekhar-149730165/" target="_blank">🔗 LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=Fv99lUAAAAAJ&hl=en" target="_blank">📖 Google Scholar</a>
+    </div>
+  </div>
+
+  <nav>
+    <a onclick="navigate('home')">Home</a>
+    <a onclick="navigate('research')">Research</a>
+    <a onclick="navigate('teaching')">Teaching</a>
+    <a onclick="navigate('publications')">Publications</a>
+    <a onclick="navigate('contact')">Contact</a>
+    <a onclick="navigate('resources')">Resources</a>
+    <a onclick="navigate('activity')">Activity</a>
+  </nav>
+
+  <main id="content"></main>
+
+  <footer>
+    <p>&copy; Pravindra Shekhar | Researcher, 2025</p>
+  </footer>
+
+  <script>
+    function togglePopup() {
+      const popup = document.getElementById("popupCard");
+      popup.style.display = (popup.style.display === "block") ? "none" : "block";
+    }
+    document.addEventListener("click", e => {
+      const popup = document.getElementById("popupCard");
+      const profilePic = document.querySelector(".profile-pic");
+      if (!popup.contains(e.target) && !profilePic.contains(e.target)) popup.style.display = "none";
+    });
+
+    // --- Section Content ---
+    const sections = {
+      home: `<h2>About Me</h2><div class="card"><p>I am a Research Scholar ... applied research.</p></div>`,
+      research: `<h2>Research</h2><div class="card"><p>Intelligent Fault Detection in WSNs...</p></div>`,
+      teaching: `<h2>Teaching</h2><div class="card"><ul><li>Data Structures & Algorithms</li><li>Computer Networks</li></ul></div>`,
+      publications: `<h2>Publications</h2><div class="card"><p>Journal & conference papers listed here...</p></div>`,
+      contact: `<h2>Contact</h2><div class="card"><p>Email: <a href="mailto:pravindra@uohyd.ac.in">pravindra@uohyd.ac.in</a></p></div>`,
+      resources: `<h2>Resources</h2><div class="card"><p>Coming Soon...</p></div>`,
+      activity: `<h2>Activities</h2><div class="card"><p>Conference presentations and workshops...</p></div>`
+    };
+
+    // --- Load Section ---
+    function loadSection(section) {
+      document.getElementById("content").innerHTML = sections[section] || sections.home;
+      document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
+      const navLinks = document.querySelectorAll("nav a");
+      const keys = ["home","research","teaching","publications","contact","resources","activity"];
+      const idx = keys.indexOf(section);
+      if (idx >= 0) navLinks[idx].classList.add("active");
+      window.scrollTo({ top:0, behavior:'smooth' });
+    }
+
+    // --- Navigation with clean URLs ---
+    function navigate(section) {
+      history.pushState({section}, "", "/" + section);
+      loadSection(section);
+    }
+
+    // --- Handle back/forward navigation ---
+    window.onpopstate = function(e) {
+      const section = (e.state && e.state.section) || window.location.pathname.replace("/","");
+      loadSection(section || "home");
+    };
+
+    // --- Initial load ---
+    window.addEventListener("DOMContentLoaded", () => {
+      let section = window.location.pathname.replace("/","");
+      if (!section || !sections[section]) section = "home";
+      history.replaceState({section}, "", "/" + section);
+      loadSection(section);
+    });
+  </script>
+</body>
+</html>
