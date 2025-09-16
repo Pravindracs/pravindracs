@@ -332,17 +332,10 @@
       document.getElementById("content").innerHTML = sections[section];
       window.scrollTo({ top: 0, behavior: 'smooth' }); // always show fresh from top
     }
+	  // Load default Home on page open
+  window.onload = () => loadSection('home');
   </script>
 
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
